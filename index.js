@@ -26,6 +26,7 @@ let persons = [
       }
 ]
 
+// Info address
 app.get('/info', (request, response) => {
   const currentDateTime = new Date()
   const numOfPersons = persons.length
