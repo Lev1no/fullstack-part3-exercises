@@ -7,6 +7,12 @@ app.use(express.json())
 // Add morgan middleware for logging using 'tiny' configuration
 app.use(morgan('tiny'))
 
+// Create a custom token to log request body
+morgan.token('body', (req) => JSON.stringify(req.body));
+
+// Configure morgan to use the 'tiny' format and include the custom token
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'));
+
 let persons = [
     { 
         "id": "1",
